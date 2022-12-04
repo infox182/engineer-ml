@@ -10,6 +10,7 @@ This code can detect russian liecense car plates.
 </picture>
 
 ### Detection
+- run git clone https://github.com/ultralytics/yolov5 in project folder to clone YOLOv5 repository
 - run pip install -r requirements.txt to install dependencies
 - put your weights on /weigths/best.pt (on Mac you can use /weigts/best.mlmodel for fast CoreML implementation)
 - run carplate_detect.py to start recognizing test video

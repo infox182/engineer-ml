@@ -13,9 +13,9 @@ import easyocr
 
 FILE = Path(__file__).resolve()
 ROOT = FILE.parents[0]  # YOLOv5 root directory
-if str(ROOT) not in sys.path:
-    sys.path.append(str(ROOT))  # add ROOT to PATH
-ROOT = Path(os.path.relpath(ROOT, Path.cwd()))  # relative
+if str(ROOT / "yolov5") not in sys.path:
+    sys.path.append(str(ROOT / "yolov5"))  # add ROOT to PATH
+# ROOT = Path(os.path.relpath(ROOT, Path.cwd()))  # relative
 
 from models.common import DetectMultiBackend
 from utils.dataloaders import (
@@ -51,7 +51,7 @@ def run(
     # source="https://youtu.be/OZe77bdEYjU",  # file/dir/URL/glob/screen/0(webcam)
     # source="https://youtu.be/oyWNWlnqV_0",  # file/dir/URL/glob/screen/0(webcam)
     source="https://youtu.be/91sMXyRIw4o",  # file/dir/URL/glob/screen/0(webcam)
-    data=ROOT / "data/carplate.yaml",  # dataset.yaml path
+    data=ROOT / "carplate.yaml",  # dataset.yaml path
     imgsz=(640, 640),  # inference size (height, width)
     conf_thres=0.6,  # confidence threshold
     iou_thres=0.45,  # NMS IOU threshold
@@ -309,8 +309,8 @@ def main():
 def start_easy_ocr():
     # reader = easyocr.Reader(["en", "ru"])
     reader = easyocr.Reader(["en","ru"],
-                        model_storage_directory='custom_ocr',
-                        user_network_directory='custom_ocr') 
+                        model_storage_directory=ROOT / 'custom_ocr',
+                        user_network_directory=ROOT / 'custom_ocr') 
     return reader
 
 
