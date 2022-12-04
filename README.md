@@ -10,6 +10,7 @@ This code can detect russian liecense car plates.
 </picture>
 
 ### Detection
+- run git clone https://github.com/ultralytics/yolov5 in project folder to clone YOLOv5 repository
 - run pip install -r requirements.txt to install dependencies
 - put your weights on /weigths/best.pt (on Mac you can use /weigts/best.mlmodel for fast CoreML implementation)
 - run carplate_detect.py to start recognizing test video
@@ -41,3 +42,34 @@ Some metrics of training YOLOv5 model you can see below. There are dataset with 
   <source media="(prefers-color-scheme: light)" srcset="https://github.com/pandakov/yolo5_car_detection/blob/master/metrics/train.png">
   <img alt="Some training metrics" src="https://github.com/pandakov/yolo5_car_detection/blob/master/metrics/train.png">
 </picture>
+
+### Настройка среды для запуска
+
+#### Установка пакетного менеджера
+```
+  curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+  python3 get-pip.py
+```
+
+#### Развертывание окружения
+```
+  python3 -m venv venv
+  source venv/bin/activate
+  pip install -r requirements.txt
+```
+
+#### Сборка пакета
+```
+  python3 -m build
+  twine upload --repository testpypi dist/*
+```
+
+#### Ссылка на пакет в pypi-test
+```
+  https://test.pypi.org/project/car-detection/1.0.0/
+```
+
+#### Установка пакета из pypi-test
+```
+  pip install -i https://test.pypi.org/simple/ car-detection==1.0.0
+```

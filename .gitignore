@@ -266,3 +266,5 @@ fabric.properties
 /data
 /models
 /utils
+/venv
+/dev-venv
